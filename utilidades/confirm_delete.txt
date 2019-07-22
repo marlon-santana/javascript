@@ -1,0 +1,28 @@
+Confirmação antes de excluir registro
+
+<a href="URL" onClick="return confirm('Tem certeza de que deseja excluir?');">Delete</a>
+
+Aplicado em um exemplo do Joomla
+
+    <?php
+      echo '<div class="row">' .
+            '<div class="span6">';
+     foreach ($rows as $row) {	  
+          $update = "index.php?option=com_ribafs_portfolio&task=edit&categoria=". "'$row->categoria'";
+          $delete = "index.php?option=com_ribafs_portfolio&task=delete&categoria=". "'$row->categoria'";
+
+      echo '<tr><td>' . $row->categoria . "</td>" .
+               '<td>' . $row->imagem . "</td>" .
+               '<td>' . $row->descricao . "</td>" .
+               "<td class='btn'><a href=" . $update . ">Alterar</a></td>" .
+               "<td class='btn'><a href=" . $delete . " onclick=\"return confirm('Tem certeza de que deseja excluir?');\">Delete</a></td>" .
+           '</tr>';
+     }?>
+            <tr><td colspan="5" class="btn"><a href="index.php?option=com_ribafs_portfolio&task=insert"><i class="icon-plus"></i>Novo</a></td></tr>
+            </table>
+        </div><!--/span6 -->
+    </div><!--/row -->
+
+
+
+
